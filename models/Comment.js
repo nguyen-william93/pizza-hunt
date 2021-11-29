@@ -12,14 +12,8 @@ const CommentSchema = new Schema(
         createAt: {
             type: Date,
             default: Date.now,
-            get: (createdAtVal) => dateFormat(createdAtVal)
         }
     },
-    {
-        toJSON:{
-            getters: true
-        }
-    }
 );
 
 const Comment = model('Comment', CommentSchema);

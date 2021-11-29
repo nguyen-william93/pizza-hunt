@@ -20,6 +20,11 @@ const pizzaController = {
     //get one pizza by id
     getPizzaById({ params }, res) {
         Pizza.findOne({ _id: params.id })
+        .populate({
+            path: 'comments',
+            select: '-__v'
+        })
+        .select('-__v')
         .then(dbPizzaData => {
             if(!dbPizzaData) {
                 res.status(400).json({ message: 'No pizza is found with this ID' })
