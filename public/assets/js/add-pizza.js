@@ -58,7 +58,8 @@ const handlePizzaSubmit = event => {
       Accept: 'application/json', 'Content-Type': 'application/json'
     },
     body: JSON.stringify(formData)
-  }).then(response => response.json())
+  })
+    .then(response => response.json())
     .then(postResponse => {
       alert('Pizza Created Successfully!');
       console.log(postResponse);
